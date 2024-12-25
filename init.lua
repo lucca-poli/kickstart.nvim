@@ -1,5 +1,5 @@
 -- Must be called first
-require("setup")
+require 'setup'
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
@@ -420,12 +420,12 @@ require('lazy').setup({
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         ts_ls = {
-          cmd = { "typescript-language-server", "--stdio" },
+          cmd = { 'typescript-language-server', '--stdio' },
         },
         --
 
         lua_ls = {
-          cmd = { "/etc/profiles/per-user/lucca/bin/lua-language-server" },
+          cmd = { '/etc/profiles/per-user/lucca/bin/lua-language-server' },
           -- filetypes = { ... },
           -- capabilities = {},
           settings = {
@@ -510,10 +510,10 @@ require('lazy').setup({
       },
       formatters = {
         stylua = {
-          command = "/etc/profiles/per-user/lucca/bin/stylua",
+          command = '/etc/profiles/per-user/lucca/bin/stylua',
         },
         prettier = {
-          command = "/etc/profiles/per-user/lucca/bin/prettier",
+          command = '/etc/profiles/per-user/lucca/bin/prettier',
         },
       },
     },
@@ -642,6 +642,9 @@ require('lazy').setup({
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     'folke/tokyonight.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
+    opts = {
+      transparent = true,
+    },
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
@@ -655,6 +658,21 @@ require('lazy').setup({
 
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+
+  -- Easier comments
+  'numToStr/Comment.nvim',
+
+  -- Tree for directory locating
+  {
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v3.x',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+      'MunifTanjim/nui.nvim',
+      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    },
+  },
 
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
@@ -731,7 +749,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
+  require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
