@@ -3,9 +3,6 @@
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
--- vim.keymap.set("n", "<leader>f", function()
---     vim.lsp.buf.format()
--- end, { desc = "[F]ormat code" })
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
