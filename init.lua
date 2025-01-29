@@ -674,6 +674,13 @@ require('lazy').setup({
     },
   },
 
+  -- Easier file searching/grabing
+  {
+    'ThePrimeagen/harpoon',
+    branch = 'harpoon2',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  },
+
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
     config = function()
